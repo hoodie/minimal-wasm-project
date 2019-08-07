@@ -1,5 +1,6 @@
 {
   "scripts": {
+    "build": "cargo check && wasm-pack build",
     "serve": "webpack-dev-server"
   },
   "devDependencies": {
