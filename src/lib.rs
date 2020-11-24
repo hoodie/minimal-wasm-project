@@ -1,7 +1,3 @@
-extern crate js_sys;
-extern crate wasm_bindgen;
-extern crate web_sys;
-
 use wasm_bindgen::prelude::*;
 use wasm_bindgen::JsCast;
 use web_sys::{Document, EventTarget, KeyboardEvent};
@@ -61,7 +57,7 @@ pub fn listen_for_keys() -> Result<(), JsValue> {
 
     let cb = Closure::wrap(Box::new(move |v: KeyboardEvent| {
         debug(&format!("down wityh all the keys: {:#?}", v.key()))
-    }) as Box<Fn(_)>);
+    }) as Box<dyn Fn(_)>);
 
     let et: &EventTarget = document.as_ref();
     et.add_event_listener_with_callback("keydown", cb.as_ref().unchecked_ref())?;

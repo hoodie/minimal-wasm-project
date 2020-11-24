@@ -12,5 +12,9 @@ module.exports = {
       title: "Minimal WASM"
     })
   ],
-  mode: "development"
+  mode: "development",
+  experiments: {
+    //asyncWebAssembly: true // async don't work ATM : https://github.com/rustwasm/wasm-bindgen/issues/2343
+    syncWebAssembly: true
+  }
 };
